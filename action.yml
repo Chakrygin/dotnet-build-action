@@ -12,12 +12,12 @@ runs:
 
 inputs:
   CONFIGURATION:
-    description: 'CONFIGURATION'
+    description: 'Defines the build configuration.'
     required: true
     default: 'Release'
 
   SOLUTION:
-    description: 'SOLUTION'
+    description: 'A pattern to search solution file to restoring and building.'
     required: true
     default: '*.sln'
 
@@ -25,17 +25,17 @@ inputs:
     description: 'PROJECTS_TO_UNIT_TESTING'
     required: false
     default: |
-      'tests/**/*.Tests.csproj'
-      'tests/**/*.UnitTests.csproj'
+      tests/**/*.Tests.csproj
+      tests/**/*.UnitTests.csproj
 
   PROJECTS_TO_INTEGRATION_TESTING:
     description: 'PROJECTS_TO_INTEGRATION_TESTING'
     required: false
     default: |
-      'tests/**/*.IntegrationTests.csproj'
+      tests/**/*.IntegrationTests.csproj
 
   PROJECTS_TO_PACKING:
     description: 'PROJECTS_TO_PACKING'
     required: true
     default: |
-      'src/**/*.csproj'
+      src/**/*.csproj
