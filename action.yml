@@ -1,0 +1,41 @@
+name: .NET Build
+author: Igor Chakrygin
+description: ''
+
+branding:
+  icon: 'package'
+  color: 'purple'
+
+runs:
+  using: 'node12'
+  main: 'dist/index.js'
+
+inputs:
+  CONFIGURATION:
+    description: 'CONFIGURATION'
+    required: true
+    default: 'Release'
+
+  SOLUTION:
+    description: 'SOLUTION'
+    required: true
+    default: '*.sln'
+
+  PROJECTS_TO_UNIT_TESTING:
+    description: 'PROJECTS_TO_UNIT_TESTING'
+    required: false
+    default: |
+      'tests/**/*.Tests.csproj'
+      'tests/**/*.UnitTests.csproj'
+
+  PROJECTS_TO_INTEGRATION_TESTING:
+    description: 'PROJECTS_TO_INTEGRATION_TESTING'
+    required: false
+    default: |
+      'tests/**/*.IntegrationTests.csproj'
+
+  PROJECTS_TO_PACKING:
+    description: 'PROJECTS_TO_PACKING'
+    required: true
+    default: |
+      'src/**/*.csproj'
