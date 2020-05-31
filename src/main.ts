@@ -20,6 +20,7 @@ async function main() {
     const projectsToPacking = await findProjectsToPacking();
 
     const configuration = core.getInput('CONFIGURATION');
+    const includeSymbols = core.getInput('INCLUDE_SYMBOLS') == 'true';
 
     await core.group(`Restoring "${solution}"...`, async () => {
       await dotnet.restore(solution, {
@@ -66,6 +67,7 @@ async function main() {
         await dotnet.pack(project, {
           configuration: configuration,
           output: 'artifacts',
+          includeSymbols: includeSymbols
         });
       });
 

@@ -98,6 +98,7 @@ export async function publish(project: string, options: PublishOptions) {
 export interface PackOptions {
   configuration?: string;
   output?: string;
+  includeSymbols?: boolean
 }
 
 export async function pack(project: string, options: PackOptions) {
@@ -112,6 +113,11 @@ export async function pack(project: string, options: PackOptions) {
 
   if (options.output) {
     args.push('--output', options.output);
+  }
+
+  if (options.includeSymbols) {
+    args.push('/property:IncludeSymbols=true');
+    args.push('/property:SymbolPackageFormat=snupkg');
   }
 
   await exec('dotnet', args);

@@ -39,3 +39,8 @@ inputs:
     required: true
     default: |
       src/**/*.csproj
+
+  INCLUDE_SYMBOLS:
+    description: ''
+    required: false
+    default: 'true'
